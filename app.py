@@ -1,10 +1,10 @@
 import sys
 from screen.learning import *
+from screen.home import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import pyqtSlot, Qt
 from PyQt5 import QtCore, QtGui, QtWidgets
-from homescreen import homeScreen
 
 class Window(QMainWindow):
     
@@ -12,7 +12,7 @@ class Window(QMainWindow):
         super(Window, self).__init__(*args,**kwargs)
         self.setWindowTitle("Elixir Math Quiz Game")
         self.init_learning_dialog()
-        
+
         width = 1000
         height = 1000
         # self.setFixedHeight(height)
