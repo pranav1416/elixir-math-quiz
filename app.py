@@ -27,7 +27,7 @@ class Window(QMainWindow):
         print("Click works")
         
     
-class homeScreen(self):
+# class homeScreen(self):
 
     
 def main():
