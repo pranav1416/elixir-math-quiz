@@ -1,14 +1,16 @@
 import sys
+from screen.learning import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import pyqtSlot, Qt
+from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Window(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(QMainWindow, self).__init__(*args,**kwargs)
         main_win = QWidget()
         self.setWindowTitle("Elixir Math Quiz Game")
-
+        self.init_learning_dialog()
         layout = QGridLayout()
         
         
@@ -23,11 +25,14 @@ class Window(QMainWindow):
         main_win.setLayout(layout)
         self.setCentralWidget(main_win)
         self.show()
-    def btnAction():
+    def btnAction(self):
+        self.leanrningDialog.show()
         print("Click works")
-        
-    
-class homeScreen(self):
+
+    def init_learning_dialog(self):
+        self.leanrningDialog = QtWidgets.QDialog()
+        ui = Ui_leanrningDialog()
+        ui.setupUi(self.leanrningDialog)
 
     
 def main():
