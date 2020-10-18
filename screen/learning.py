@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Learning Dialog.ui'
+# Form implementation generated from reading ui file 'learning.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from functools import partial
 
 
 class Ui_leanrningDialog(object):
@@ -29,14 +30,16 @@ class Ui_leanrningDialog(object):
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.topLeftFrame = QtWidgets.QFrame(self.topFrame)
-        self.topLeftFrame.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.topLeftFrame.setStyleSheet(
+            "background-color: rgb(255, 255, 255);")
         self.topLeftFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.topLeftFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.topLeftFrame.setObjectName("topLeftFrame")
         self.horizontalLayout.addWidget(self.topLeftFrame)
         self.topRightFrame = QtWidgets.QFrame(self.topFrame)
         self.topRightFrame.setMaximumSize(QtCore.QSize(80, 16777215))
-        self.topRightFrame.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.topRightFrame.setStyleSheet(
+            "background-color: rgb(255, 255, 255);")
         self.topRightFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.topRightFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.topRightFrame.setObjectName("topRightFrame")
@@ -45,20 +48,22 @@ class Ui_leanrningDialog(object):
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.menuBtn = QtWidgets.QPushButton(self.topRightFrame)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menuBtn.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.menuBtn.sizePolicy().hasHeightForWidth())
         self.menuBtn.setSizePolicy(sizePolicy)
         self.menuBtn.setStyleSheet("border:1px sold;\n"
-"QPushButton{\n"
-"    color: rgb(0, 0, 0);\n"
-"    background-color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0,0,0);\n"
-"}")
+                                   "QPushButton{\n"
+                                   "    color: rgb(0, 0, 0);\n"
+                                   "    background-color: rgb(255, 255, 255);\n"
+                                   "}\n"
+                                   "QPushButton:hover{\n"
+                                   "    color: rgb(255, 255, 255);\n"
+                                   "    background-color: rgb(0,0,0);\n"
+                                   "}")
         self.menuBtn.setObjectName("menuBtn")
         self.verticalLayout_2.addWidget(self.menuBtn)
         self.horizontalLayout.addWidget(self.topRightFrame)
@@ -74,23 +79,62 @@ class Ui_leanrningDialog(object):
         self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.bottomLeftFrame = QtWidgets.QFrame(self.bottomFrame)
-        self.bottomLeftFrame.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.bottomLeftFrame.setStyleSheet(
+            "background-color: rgb(255, 255, 255);")
         self.bottomLeftFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.bottomLeftFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.bottomLeftFrame.setObjectName("bottomLeftFrame")
-        self.pagesWidget = QtWidgets.QStackedWidget(self.bottomLeftFrame)
-        self.pagesWidget.setGeometry(QtCore.QRect(50, 30, 611, 381))
-        self.pagesWidget.setObjectName("pagesWidget")
-        self.page1 = QtWidgets.QWidget()
-        self.page1.setObjectName("page1")
-        self.pagesWidget.addWidget(self.page1)
-        self.page2 = QtWidgets.QWidget()
-        self.page2.setObjectName("page2")
-        self.pagesWidget.addWidget(self.page2)
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.bottomLeftFrame)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.stackedWidget = QtWidgets.QStackedWidget(self.bottomLeftFrame)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.stackedWidget.sizePolicy().hasHeightForWidth())
+        self.stackedWidget.setSizePolicy(sizePolicy)
+        self.stackedWidget.setObjectName("stackedWidget")
+        self.page_3 = QtWidgets.QWidget()
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(
+            self.page_3.sizePolicy().hasHeightForWidth())
+        self.page_3.setSizePolicy(sizePolicy)
+        self.page_3.setObjectName("page_3")
+        self.frame = QtWidgets.QFrame(self.page_3)
+        self.frame.setGeometry(QtCore.QRect(90, 20, 531, 371))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.label = QtWidgets.QLabel(self.frame)
+        self.label.setGeometry(QtCore.QRect(110, 20, 301, 31))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.label_3 = QtWidgets.QLabel(self.frame)
+        self.label_3.setGeometry(QtCore.QRect(80, 90, 411, 251))
+        self.label_3.setObjectName("label_3")
+        self.stackedWidget.addWidget(self.page_3)
+        self.page_4 = QtWidgets.QWidget()
+        self.page_4.setObjectName("page_4")
+        self.label_4 = QtWidgets.QLabel(self.page_4)
+        self.label_4.setGeometry(QtCore.QRect(200, 30, 301, 31))
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.stackedWidget.addWidget(self.page_4)
+        self.verticalLayout_4.addWidget(self.stackedWidget)
         self.horizontalLayout_2.addWidget(self.bottomLeftFrame)
         self.ButtomRight = QtWidgets.QFrame(self.bottomFrame)
+        self.ButtomRight.setMinimumSize(QtCore.QSize(80, 0))
         self.ButtomRight.setMaximumSize(QtCore.QSize(80, 16777215))
-        self.ButtomRight.setStyleSheet("alternate-background-color: rgb(255, 255, 255);")
+        self.ButtomRight.setStyleSheet(
+            "alternate-background-color: rgb(255, 255, 255);")
         self.ButtomRight.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.ButtomRight.setFrameShadow(QtWidgets.QFrame.Raised)
         self.ButtomRight.setObjectName("ButtomRight")
@@ -107,30 +151,34 @@ class Ui_leanrningDialog(object):
         self.addModule1Btn = QtWidgets.QPushButton(self.ButtomRight)
         self.addModule1Btn.setMinimumSize(QtCore.QSize(0, 30))
         self.addModule1Btn.setStyleSheet("QPushButton{    \n"
-"color: rgb(0, 0, 0);\n"
-"    background-color: rgb(255, 255, 255);\n"
-"border:0px solid;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0,0,0);\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "    background-color: rgb(255, 255, 255);\n"
+                                         "border:0px solid;\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "    color: rgb(255, 255, 255);\n"
+                                         "    background-color: rgb(0,0,0);\n"
+                                         "}")
         self.addModule1Btn.setObjectName("addModule1Btn")
+        self.addModule1Btn.clicked.connect(
+            partial(self.handleClickModuleBtn, 0))
         self.verticalLayout_3.addWidget(self.addModule1Btn)
         self.addModule2Btn = QtWidgets.QPushButton(self.ButtomRight)
         self.addModule2Btn.setMinimumSize(QtCore.QSize(0, 30))
         self.addModule2Btn.setAutoFillBackground(False)
         self.addModule2Btn.setStyleSheet("QPushButton{    \n"
-"color: rgb(0, 0, 0);\n"
-"    background-color: rgb(255, 255, 255);\n"
-"border:0px solid;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0,0,0);\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "    background-color: rgb(255, 255, 255);\n"
+                                         "border:0px solid;\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "    color: rgb(255, 255, 255);\n"
+                                         "    background-color: rgb(0,0,0);\n"
+                                         "}")
         self.addModule2Btn.setObjectName("addModule2Btn")
         self.verticalLayout_3.addWidget(self.addModule2Btn)
+        self.addModule2Btn.clicked.connect(
+            partial(self.handleClickModuleBtn, 1))
         self.subLabel = QtWidgets.QLabel(self.ButtomRight)
         self.subLabel.setMinimumSize(QtCore.QSize(0, 30))
         self.subLabel.setStyleSheet("border:1px solid;")
@@ -140,40 +188,45 @@ class Ui_leanrningDialog(object):
         self.subModule1Btn = QtWidgets.QPushButton(self.ButtomRight)
         self.subModule1Btn.setMinimumSize(QtCore.QSize(0, 30))
         self.subModule1Btn.setStyleSheet("QPushButton{    \n"
-"color: rgb(0, 0, 0);\n"
-"    background-color: rgb(255, 255, 255);\n"
-"border:0px solid;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0,0,0);\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "    background-color: rgb(255, 255, 255);\n"
+                                         "border:0px solid;\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "    color: rgb(255, 255, 255);\n"
+                                         "    background-color: rgb(0,0,0);\n"
+                                         "}")
         self.subModule1Btn.setObjectName("subModule1Btn")
         self.verticalLayout_3.addWidget(self.subModule1Btn)
         self.subModule2Btn = QtWidgets.QPushButton(self.ButtomRight)
         self.subModule2Btn.setMinimumSize(QtCore.QSize(0, 30))
         self.subModule2Btn.setStyleSheet("QPushButton{    \n"
-"color: rgb(0, 0, 0);\n"
-"    background-color: rgb(255, 255, 255);\n"
-"border:0px solid;\n"
-"}\n"
-"QPushButton:hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0,0,0);\n"
-"}")
+                                         "color: rgb(0, 0, 0);\n"
+                                         "    background-color: rgb(255, 255, 255);\n"
+                                         "border:0px solid;\n"
+                                         "}\n"
+                                         "QPushButton:hover{\n"
+                                         "    color: rgb(255, 255, 255);\n"
+                                         "    background-color: rgb(0,0,0);\n"
+                                         "}")
         self.subModule2Btn.setObjectName("subModule2Btn")
         self.verticalLayout_3.addWidget(self.subModule2Btn)
-        self.horizontalLayout_2.addWidget(self.ButtomRight, 0, QtCore.Qt.AlignTop)
+        self.horizontalLayout_2.addWidget(
+            self.ButtomRight, 0, QtCore.Qt.AlignTop)
         self.verticalLayout.addWidget(self.bottomFrame)
 
         self.retranslateUi(leanrningDialog)
-        self.pagesWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(leanrningDialog)
 
     def retranslateUi(self, leanrningDialog):
         _translate = QtCore.QCoreApplication.translate
-        leanrningDialog.setWindowTitle(_translate("leanrningDialog", "Learning Dialog"))
+        leanrningDialog.setWindowTitle(_translate(
+            "leanrningDialog", "Learning Dialog"))
         self.menuBtn.setText(_translate("leanrningDialog", "Menu"))
+        self.label.setText(_translate("leanrningDialog", "Module 1"))
+        self.label_3.setText(_translate("leanrningDialog", "Context"))
+        self.label_4.setText(_translate("leanrningDialog", "Module 2"))
         self.label_2.setText(_translate("leanrningDialog", "Addition"))
         self.addModule1Btn.setText(_translate("leanrningDialog", "Module1"))
         self.addModule2Btn.setText(_translate("leanrningDialog", "Module2"))
@@ -181,12 +234,15 @@ class Ui_leanrningDialog(object):
         self.subModule1Btn.setText(_translate("leanrningDialog", "Module1"))
         self.subModule2Btn.setText(_translate("leanrningDialog", "Module2"))
 
+    def handleClickModuleBtn(self, index):
+        self.stackedWidget.setCurrentIndex(index)
 
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     leanrningDialog = QtWidgets.QDialog()
-#     ui = Ui_leanrningDialog()
-#     ui.setupUi(leanrningDialog)
-#     leanrningDialog.show()
-#     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    leanrningDialog = QtWidgets.QDialog()
+    ui = Ui_leanrningDialog()
+    ui.setupUi(leanrningDialog)
+    leanrningDialog.show()
+    sys.exit(app.exec_())
