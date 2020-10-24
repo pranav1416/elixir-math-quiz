@@ -1,6 +1,5 @@
 /.vscode
 /screen/__pycache__
 /__pycache__
-/screen/.DS_Store
-/.DS_Store
+screen/.DS_Store
 .DS_Store
