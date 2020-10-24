@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'learning.ui'
+# Form implementation generated from reading ui file 'learningWidget.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.1
 #
@@ -12,15 +12,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from functools import partial
 
 
-class Ui_leanrningDialog(object):
-    def setupUi(self, leanrningDialog):
-        leanrningDialog.setObjectName("leanrningDialog")
-        leanrningDialog.resize(794, 502)
-        self.verticalLayout = QtWidgets.QVBoxLayout(leanrningDialog)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.topFrame = QtWidgets.QFrame(leanrningDialog)
+class Ui_learningScreen(object):
+    def setupUi(self, learningScreen):
+        learningScreen.setObjectName("learningScreen")
+        learningScreen.resize(790, 499)
+        self.topFrame = QtWidgets.QFrame(learningScreen)
+        self.topFrame.setGeometry(QtCore.QRect(0, 0, 794, 40))
         self.topFrame.setMaximumSize(QtCore.QSize(16777215, 40))
         self.topFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.topFrame.setFrameShadow(QtWidgets.QFrame.Raised)
@@ -67,8 +64,8 @@ class Ui_leanrningDialog(object):
         self.menuBtn.setObjectName("menuBtn")
         self.verticalLayout_2.addWidget(self.menuBtn)
         self.horizontalLayout.addWidget(self.topRightFrame)
-        self.verticalLayout.addWidget(self.topFrame)
-        self.bottomFrame = QtWidgets.QFrame(leanrningDialog)
+        self.bottomFrame = QtWidgets.QFrame(learningScreen)
+        self.bottomFrame.setGeometry(QtCore.QRect(0, 40, 794, 462))
         self.bottomFrame.setMaximumSize(QtCore.QSize(16777215, 16777215))
         self.bottomFrame.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.bottomFrame.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -177,8 +174,6 @@ class Ui_leanrningDialog(object):
                                          "}")
         self.addModule2Btn.setObjectName("addModule2Btn")
         self.verticalLayout_3.addWidget(self.addModule2Btn)
-        self.addModule2Btn.clicked.connect(
-            partial(self.handleClickModuleBtn, 1))
         self.subLabel = QtWidgets.QLabel(self.ButtomRight)
         self.subLabel.setMinimumSize(QtCore.QSize(0, 30))
         self.subLabel.setStyleSheet("border:1px solid;")
@@ -210,29 +205,29 @@ class Ui_leanrningDialog(object):
                                          "    background-color: rgb(0,0,0);\n"
                                          "}")
         self.subModule2Btn.setObjectName("subModule2Btn")
+        self.addModule2Btn.clicked.connect(
+            partial(self.handleClickModuleBtn, 1))
         self.verticalLayout_3.addWidget(self.subModule2Btn)
         self.horizontalLayout_2.addWidget(
             self.ButtomRight, 0, QtCore.Qt.AlignTop)
-        self.verticalLayout.addWidget(self.bottomFrame)
 
-        self.retranslateUi(leanrningDialog)
+        self.retranslateUi(learningScreen)
         self.stackedWidget.setCurrentIndex(1)
-        QtCore.QMetaObject.connectSlotsByName(leanrningDialog)
+        QtCore.QMetaObject.connectSlotsByName(learningScreen)
 
-    def retranslateUi(self, leanrningDialog):
+    def retranslateUi(self, learningScreen):
         _translate = QtCore.QCoreApplication.translate
-        leanrningDialog.setWindowTitle(_translate(
-            "leanrningDialog", "Learning Dialog"))
-        self.menuBtn.setText(_translate("leanrningDialog", "Menu"))
-        self.label.setText(_translate("leanrningDialog", "Module 1"))
-        self.label_3.setText(_translate("leanrningDialog", "Context"))
-        self.label_4.setText(_translate("leanrningDialog", "Module 2"))
-        self.label_2.setText(_translate("leanrningDialog", "Addition"))
-        self.addModule1Btn.setText(_translate("leanrningDialog", "Module1"))
-        self.addModule2Btn.setText(_translate("leanrningDialog", "Module2"))
-        self.subLabel.setText(_translate("leanrningDialog", "Subtraction"))
-        self.subModule1Btn.setText(_translate("leanrningDialog", "Module1"))
-        self.subModule2Btn.setText(_translate("leanrningDialog", "Module2"))
+        learningScreen.setWindowTitle(_translate("learningScreen", "Form"))
+        self.menuBtn.setText(_translate("learningScreen", "Menu"))
+        self.label.setText(_translate("learningScreen", "Module 1"))
+        self.label_3.setText(_translate("learningScreen", "Context"))
+        self.label_4.setText(_translate("learningScreen", "Module 2"))
+        self.label_2.setText(_translate("learningScreen", "Addition"))
+        self.addModule1Btn.setText(_translate("learningScreen", "Module1"))
+        self.addModule2Btn.setText(_translate("learningScreen", "Module2"))
+        self.subLabel.setText(_translate("learningScreen", "Subtraction"))
+        self.subModule1Btn.setText(_translate("learningScreen", "Module1"))
+        self.subModule2Btn.setText(_translate("learningScreen", "Module2"))
 
     def handleClickModuleBtn(self, index):
         self.stackedWidget.setCurrentIndex(index)
@@ -241,8 +236,8 @@ class Ui_leanrningDialog(object):
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    leanrningDialog = QtWidgets.QDialog()
-    ui = Ui_leanrningDialog()
-    ui.setupUi(leanrningDialog)
-    leanrningDialog.show()
+    learningScreen = QtWidgets.QWidget()
+    ui = Ui_learningScreen()
+    ui.setupUi(learningScreen)
+    learningScreen.show()
     sys.exit(app.exec_())
