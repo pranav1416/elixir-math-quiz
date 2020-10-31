@@ -8,6 +8,10 @@ class QuizScreen(QtWidgets.QWidget):
         self.stack = stack
         uic.loadUi("./screen/_ui/quiz_screen.ui", self)
         self.finishBtn.clicked.connect(self.finishBtn_action)
+        self.cancelBtn.clicked.connect(self.cancelBtn_action)
     
     def finishBtn_action(self):
         self.stack.setCurrentIndex(5)
+
+    def cancelBtn_action(self):
+        self.stack.setCurrentIndex(1)

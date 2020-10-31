@@ -29,7 +29,7 @@ class MainScreen(QtWidgets.QMainWindow):
         self.learning_screen = LearningScreen()
         self.mainStack.addWidget(self.learning_screen)
         
-        self.practice_screen = PracticeScreen()
+        self.practice_screen = PracticeScreen(self.mainStack)
         self.mainStack.addWidget(self.practice_screen)
 
         self.quiz_screen = QuizScreen(self.mainStack)
