@@ -26,7 +26,7 @@ class MainScreen(QtWidgets.QMainWindow):
         self.nav_screen = NavScreen(self.mainStack)
         self.mainStack.addWidget(self.nav_screen)
         
-        self.learning_screen = LearningScreen()
+        self.learning_screen = LearningScreen(self.mainStack)
         self.mainStack.addWidget(self.learning_screen)
         
         self.practice_screen = PracticeScreen(self.mainStack)
