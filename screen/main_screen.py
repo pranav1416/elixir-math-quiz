@@ -35,7 +35,7 @@ class MainScreen(QtWidgets.QMainWindow):
         self.quiz_screen = QuizScreen(self.mainStack)
         self.mainStack.addWidget(self.quiz_screen)
 
-        self.result_screen = ResultScreen()
+        self.result_screen = ResultScreen(self.mainStack)
         self.mainStack.addWidget(self.result_screen)
 
         self.mainStack.setCurrentIndex(0)
