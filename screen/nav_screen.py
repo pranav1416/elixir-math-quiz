@@ -9,6 +9,8 @@ class NavScreen(QtWidgets.QWidget):
         super(NavScreen, self).__init__()
         self.stack = stack
         uic.loadUi("./screen/_ui/nav_screen.ui", self)
+        self.quiz_dialog = QuizDialog(self.stack)
+        self.practice_dialog = PracticeDialog(self.stack)
         self.learnBtn.clicked.connect(self.learnBtn_action)
         self.practiceBtn.clicked.connect(self.practiceBtn_action)
         self.quizBtn.clicked.connect(self.quizBtn_action)
@@ -17,10 +19,7 @@ class NavScreen(QtWidgets.QWidget):
         self.stack.setCurrentIndex(2)
 
     def quizBtn_action(self):
-        quiz_dialog = QuizDialog(self.stack)
-        quiz_dialog.exec_()
+        self.quiz_dialog.exec_()
 
     def practiceBtn_action(self):
-        practice_dialog = PracticeDialog(self.stack)
-        practice_dialog.exec_()
-    
+        self.practice_dialog.exec_()

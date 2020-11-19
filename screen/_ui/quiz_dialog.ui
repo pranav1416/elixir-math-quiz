@@ -151,7 +151,7 @@ QPushButton:hover{
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="multiplyBtn">
+      <widget class="QPushButton" name="cancelBtn">
        <property name="maximumSize">
         <size>
          <width>150</width>
@@ -175,7 +175,7 @@ QPushButton:hover{
 }</string>
        </property>
        <property name="text">
-        <string>Home</string>
+        <string>Cancel</string>
        </property>
       </widget>
      </item>
