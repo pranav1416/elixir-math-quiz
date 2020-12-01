@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>884</width>
-    <height>554</height>
+    <width>800</width>
+    <height>510</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,7 +44,7 @@
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -77,7 +77,7 @@
          <string notr="true">background-color: rgb(255, 255, 255);</string>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -93,7 +93,7 @@
          </size>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -135,7 +135,7 @@ QPushButton:hover{
       <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+      <enum>QFrame::NoFrame</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
@@ -159,7 +159,7 @@ QPushButton:hover{
       <item>
        <widget class="QFrame" name="frame_pages">
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
@@ -186,14 +186,14 @@ QPushButton:hover{
             <string notr="true">background-color: rgb(255, 255, 255);</string>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="page_1">
             <widget class="QGroupBox" name="groupBox_3">
              <property name="geometry">
               <rect>
-               <x>470</x>
-               <y>260</y>
+               <x>420</x>
+               <y>240</y>
                <width>200</width>
                <height>200</height>
               </rect>
@@ -260,7 +260,7 @@ QPushButton:hover{
              <property name="geometry">
               <rect>
                <x>130</x>
-               <y>270</y>
+               <y>240</y>
                <width>200</width>
                <height>200</height>
               </rect>
@@ -327,8 +327,8 @@ QPushButton:hover{
             <widget class="QLabel" name="stars">
              <property name="geometry">
               <rect>
-               <x>470</x>
-               <y>0</y>
+               <x>410</x>
+               <y>20</y>
                <width>200</width>
                <height>200</height>
               </rect>
@@ -623,7 +623,7 @@ QPushButton:hover{
          </size>
         </property>
         <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
+         <enum>QFrame::NoFrame</enum>
         </property>
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>

@@ -12,7 +12,7 @@ additionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '7 + 3 = ?', 'o
         {'content': '2', 'selected': False}, {
             'content': '42', 'selected': False},
         {'content': '61', 'selected': False}, {'content': '412', 'selected': False}],
-        'answer': '1', 'userAnswer': None},
+        'answer': '42', 'userAnswer': None},
     {'id': 4, 'name': 'Question 4', 'question': '77 + 32 = ?', 'options': [
         {'content': '-24', 'selected': False}, {
             'content': '922', 'selected': False},
@@ -21,23 +21,23 @@ additionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '7 + 3 = ?', 'o
 
 subtractionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '11 - 5 = ?', 'options': [
     {'content': '-2', 'selected': False}, {'content': '2', 'selected': False},
-    {'content': '12', 'selected': False}, {'content': '15', 'selected': False}],
+    {'content': '6', 'selected': False}, {'content': '15', 'selected': False}],
     'answer': '6', 'userAnswer': None},
     {'id': 2, 'name': 'Question 2', 'question': '99 - 7 = ?',
      'options': [
          {'content': '111', 'selected': False}, {
-             'content': '41', 'selected': False},
+             'content': '92', 'selected': False},
          {'content': '314', 'selected': False}, {'content': '-32', 'selected': False}],
      'answer': '92', 'userAnswer': None},
     {'id': 3, 'name': 'Question 3', 'question': '55 - 32 = ?', 'options': [
-        {'content': '28', 'selected': False}, {
+        {'content': '23', 'selected': False}, {
             'content': '36', 'selected': False},
         {'content': '42', 'selected': False}, {'content': '412', 'selected': False}],
-        'answer': '6', 'userAnswer': None},
+        'answer': '23', 'userAnswer': None},
     {'id': 4, 'name': 'Question 4', 'question': '17 - 4 = ?', 'options': [
         {'content': '88', 'selected': False}, {
             'content': '5', 'selected': False},
-        {'content': '1', 'selected': False}, {'content': '14', 'selected': False}],
+        {'content': '13', 'selected': False}, {'content': '14', 'selected': False}],
         'answer': '13', 'userAnswer': None}]
 
 results = {'additionQuiz': {'correct': 0,

@@ -25,7 +25,6 @@ class QuizScreen(QtWidgets.QWidget):
             self.get_result()
             self.stack.setCurrentIndex(5)
             self.updateQuizReuslt.emit(self.subject)
-            self.progressBar.setValue(0)
         else:
             self.question.setText('You Haven\'t Finished')
 
@@ -99,6 +98,16 @@ class QuizScreen(QtWidgets.QWidget):
             self.questionSet = additionQuestions 
         elif newSubject == 'subtraction':
             self.questionSet = subtractionQuestions
+        self.questionLst.clear()
+        for question in self.questionSet:
+            self.questionLst.addItem(question['name']) 
         self.questionLst.setCurrentRow(1)
         self.questionLst.setCurrentRow(0)
         print(self.subject)
+
+    @QtCore.pyqtSlot()
+    def onResetAnswers(self):
+        for question in self.questionSet:
+            question['userAnswer'] = None
+        self.progressBar.setValue(0)
+        self.questionLst.setCurrentRow(0)

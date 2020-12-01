@@ -8,6 +8,7 @@ ui_path = Path("./screen/_ui/")
 
 
 class ResultScreen(QtWidgets.QWidget):
+    resetAnswers = QtCore.pyqtSignal()
 
     def __init__(self, stack):
         super(ResultScreen, self).__init__()
@@ -102,11 +103,10 @@ class ResultScreen(QtWidgets.QWidget):
         self.tabWidget.setCurrentIndex(index)
 
     def homeBtn_action(self):
-        self.resetProblems()
         self.stack.setCurrentIndex(1)
 
     def tryagainBtn_action(self):
-        self.resetProblems()
+        self.resetAnswers.emit()
         self.stack.setCurrentIndex(4)
 
     def reviewBtn_action(self):
@@ -152,7 +152,3 @@ class ResultScreen(QtWidgets.QWidget):
             self.emoji.setPixmap(QPixmap("resources/correct_rating.png"))
         else:
             self.emoji.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-    def resetProblems(self):
-        for question in self.questionSet:
-            question['userAnswer'] = None
