@@ -13,12 +13,6 @@ from PyQt5.QtMultimedia import QSound
 
 ui_path = Path("./screen/_ui/")
 
-x1 = np.arange(10)
-y1 = [5] * len(x1)
-x2 = np.arange(9, 15)
-y2 = [5] * len(x2)
-
-
 class ResultScreen(QtWidgets.QWidget):
     resetAnswers = QtCore.pyqtSignal()
 
@@ -43,7 +37,7 @@ class ResultScreen(QtWidgets.QWidget):
         self.figure = plt.figure() 
         self.canvas = FigureCanvas(self.figure) 
         self.graph.addWidget(self.canvas) 
-        self.sound = QSound("resources\magic2.wav")
+        self.sound = QSound("resources/magic2.wav")
 
     def plot(self, num1, num2): 
         if self.subject == 'addition':
@@ -74,7 +68,7 @@ class ResultScreen(QtWidgets.QWidget):
             else:
                 line2.set_data(np.flip(x2)[:i], np.flip(y2)[:i])
             return line2, ax
-        self.an1 = FuncAnimation(self.figure, update, interval=10)
+        self.an1 = FuncAnimation(self.figure, update, interval=50)
         ax.set_xlim(left, right)
         ax.set_ylim(4.9,5.1) 
         self.canvas.draw() 
