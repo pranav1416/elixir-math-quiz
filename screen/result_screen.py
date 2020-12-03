@@ -101,13 +101,13 @@ class ResultScreen(QtWidgets.QWidget):
         self.correct_num.setText(
             str(results[f'{self.subject}Quiz']['correct']))
         self.wrong_num.setText(str(results[f'{self.subject}Quiz']['wrong']))
-        if results[f'{self.subject}Quiz']['score'] == 0:
+        if results[f'{self.subject}Quiz']['score'] <= 20:
             self.stars.setPixmap(QPixmap("resources/1star.png"))
-        elif results[f'{self.subject}Quiz']['score'] <= 25:
+        elif results[f'{self.subject}Quiz']['score'] <= 40:
             self.stars.setPixmap(QPixmap("resources/2stars.png"))
-        elif results[f'{self.subject}Quiz']['score'] <= 50:
+        elif results[f'{self.subject}Quiz']['score'] <= 60:
             self.stars.setPixmap(QPixmap("resources/3stars.png"))
-        elif results[f'{self.subject}Quiz']['score'] <= 75:
+        elif results[f'{self.subject}Quiz']['score'] <= 80:
             self.stars.setPixmap(QPixmap("resources/4stars.png"))
         elif results[f'{self.subject}Quiz']['score'] <= 100:
             self.stars.setPixmap(QPixmap("resources/5stars.png"))

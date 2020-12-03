@@ -42,7 +42,12 @@ subtractionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '11 - 5 = ?'
         {'content': '88', 'selected': False}, {
             'content': '5', 'selected': False},
         {'content': '13', 'selected': False}, {'content': '14', 'selected': False}],
-        'answer': '13', 'userAnswer': None}]
+        'answer': '13', 'userAnswer': None},
+    {'id': 5, 'name': 'Question 5', 'question': '30 - 9 = ?', 'options': [
+        {'content': '31', 'selected': False}, {
+            'content': '21', 'selected': False},
+        {'content': '11', 'selected': False}, {'content': '22', 'selected': False}],
+        'answer': '21', 'userAnswer': None}]
 
 results = {'additionQuiz': {'correct': 0,
                             'correctQuestions': [], 'wrong': 0, 'wrongQuestions': [], 'score': 0},
