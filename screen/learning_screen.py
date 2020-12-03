@@ -21,8 +21,6 @@ class LearningScreen(QtWidgets.QWidget):
             partial(self.handleClickModuleBtn, 2))
         self.subModule2Btn.clicked.connect(
             partial(self.handleClickModuleBtn, 3))
-        self.subModule2Btn.clicked.connect(
-            partial(self.handleClickModuleBtn, 3))
 
     def handleClickModuleBtn(self, index):
         self.stackedWidget.setCurrentIndex(index)
