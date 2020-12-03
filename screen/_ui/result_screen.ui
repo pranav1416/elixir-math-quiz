@@ -186,7 +186,7 @@ QPushButton:hover{
             <string notr="true">background-color: rgb(255, 255, 255);</string>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="page_1">
             <widget class="QGroupBox" name="groupBox_3">
@@ -504,35 +504,21 @@ QPushButton:hover{
             </widget>
            </widget>
            <widget class="QWidget" name="page_2">
-            <widget class="QListWidget" name="listWidget">
-             <property name="geometry">
-              <rect>
-               <x>420</x>
-               <y>90</y>
-               <width>191</width>
-               <height>171</height>
-              </rect>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>400</height>
-              </size>
-             </property>
-            </widget>
             <widget class="QLabel" name="question">
              <property name="geometry">
               <rect>
-               <x>140</x>
-               <y>50</y>
-               <width>261</width>
-               <height>91</height>
+               <x>80</x>
+               <y>40</y>
+               <width>221</width>
+               <height>41</height>
               </rect>
              </property>
              <property name="font">
               <font>
                <family>Microsoft JhengHei</family>
                <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -542,35 +528,18 @@ QPushButton:hover{
             <widget class="QLabel" name="userAnswer">
              <property name="geometry">
               <rect>
-               <x>390</x>
-               <y>360</y>
-               <width>341</width>
+               <x>80</x>
+               <y>100</y>
+               <width>221</width>
                <height>41</height>
               </rect>
              </property>
              <property name="font">
               <font>
                <family>Microsoft JhengHei</family>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="text">
-              <string>TextLabel</string>
-             </property>
-            </widget>
-            <widget class="QLabel" name="answer">
-             <property name="geometry">
-              <rect>
-               <x>140</x>
-               <y>210</y>
-               <width>261</width>
-               <height>81</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>Microsoft JhengHei</family>
-               <pointsize>20</pointsize>
+               <pointsize>15</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
               </font>
              </property>
              <property name="text">
@@ -580,8 +549,8 @@ QPushButton:hover{
             <widget class="QLabel" name="emoji">
              <property name="geometry">
               <rect>
-               <x>140</x>
-               <y>350</y>
+               <x>500</x>
+               <y>40</y>
                <width>170</width>
                <height>80</height>
               </rect>
@@ -601,6 +570,33 @@ QPushButton:hover{
              <property name="scaledContents">
               <bool>true</bool>
              </property>
+            </widget>
+            <widget class="QListWidget" name="listWidget">
+             <property name="geometry">
+              <rect>
+               <x>580</x>
+               <y>180</y>
+               <width>121</width>
+               <height>161</height>
+              </rect>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>400</height>
+              </size>
+             </property>
+            </widget>
+            <widget class="QWidget" name="verticalLayoutWidget">
+             <property name="geometry">
+              <rect>
+               <x>20</x>
+               <y>180</y>
+               <width>531</width>
+               <height>291</height>
+              </rect>
+             </property>
+             <layout class="QVBoxLayout" name="graph"/>
             </widget>
            </widget>
           </widget>

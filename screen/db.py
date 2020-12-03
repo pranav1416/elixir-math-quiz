@@ -17,7 +17,11 @@ additionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '7 + 3 = ?', 'o
         {'content': '-24', 'selected': False}, {
             'content': '922', 'selected': False},
         {'content': '144', 'selected': False}, {'content': '109', 'selected': False}],
-        'answer': '109', 'userAnswer': None}]
+        'answer': '109', 'userAnswer': None}, 
+        {'id': 5, 'name': 'Question 5', 'question': '17 + 23 = ?', 'options': [
+    {'content': '55', 'selected': False}, {'content': '40', 'selected': False},
+    {'content': '19', 'selected': False}, {'content': '2', 'selected': False}],
+    'answer': '40', 'userAnswer': None}]
 
 subtractionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '11 - 5 = ?', 'options': [
     {'content': '-2', 'selected': False}, {'content': '2', 'selected': False},
