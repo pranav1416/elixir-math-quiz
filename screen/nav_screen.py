@@ -22,4 +22,4 @@ class NavScreen(QtWidgets.QWidget):
         self.quiz_dialog.exec_()
 
     def practiceBtn_action(self):
-        self.practice_dialog.exec_()
+        self.stack.setCurrentIndex(3)

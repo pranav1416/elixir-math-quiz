@@ -9,5 +9,25 @@ class HomeScreen(QtWidgets.QWidget):
         uic.loadUi("./screen/_ui/home_screen.ui", self)
         self.proceedBtn.clicked.connect(self.proceed_action)
 
+    def valid_name(self):
+        name = self.userName.text()
+        print(name)
+        if(name != "" and name != " "):
+            return True
+        return False 
+
     def proceed_action(self):
-        self.stack.setCurrentIndex(1)
+        flag = self.valid_name()
+        print(flag)
+        if(flag):
+            self.stack.setCurrentIndex(1)
+        else:
+            msg = QtWidgets.QMessageBox()
+            msg.setIcon(QtWidgets.QMessageBox.Information)
+            msg.setText("Please enter a valid name!")
+            msg.setWindowTitle("Name not valid")
+            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+            #msg.buttonClicked.connect(msgButtonClick)
+            msg.exec()
+
+    
