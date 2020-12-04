@@ -17,11 +17,12 @@ additionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '7 + 3 = ?', 'o
         {'content': '-24', 'selected': False}, {
             'content': '922', 'selected': False},
         {'content': '144', 'selected': False}, {'content': '109', 'selected': False}],
-        'answer': '109', 'userAnswer': None}, 
-        {'id': 5, 'name': 'Question 5', 'question': '17 + 23 = ?', 'options': [
-    {'content': '55', 'selected': False}, {'content': '40', 'selected': False},
-    {'content': '19', 'selected': False}, {'content': '2', 'selected': False}],
-    'answer': '40', 'userAnswer': None}]
+        'answer': '109', 'userAnswer': None},
+    {'id': 5, 'name': 'Question 5', 'question': '17 + 23 = ?', 'options': [
+        {'content': '55', 'selected': False}, {
+            'content': '40', 'selected': False},
+        {'content': '19', 'selected': False}, {'content': '2', 'selected': False}],
+     'answer': '40', 'userAnswer': None}]
 
 subtractionQuestions = [{'id': 1, 'name': 'Question 1', 'question': '11 - 5 = ?', 'options': [
     {'content': '-2', 'selected': False}, {'content': '2', 'selected': False},
@@ -53,3 +54,26 @@ results = {'additionQuiz': {'correct': 0,
                             'correctQuestions': [], 'wrong': 0, 'wrongQuestions': [], 'score': 0},
            'subtractionQuiz': {'correct': 0,
                                'correctQuestions': [], 'wrong': 0, 'wrongQuestions': [], 'score': 0}}
+
+practice_questions = {
+    'addition': [
+        {'id': 1, 'options': [7, 5, 3, 11, None],
+            'answer': '3', 'userAnswer': None},
+        {'id': 2, 'options': [9, 2, 11, 5, None],
+            'answer': '5', 'userAnswer': None},
+        {'id': 3, 'options': [2, 12, 7, 5, None],
+            'answer': '2', 'userAnswer': None},
+        {'id': 4, 'options': [7, 6, 41, 33, None],
+            'answer': '7', 'userAnswer': None},
+    ],
+    'subtraction': [
+        {'id': 1, 'options': [3, 1, 33, 11, None],
+            'answer': '1', 'userAnswer': None},
+        {'id': 2, 'options': [1, 8, 0, 25, None],
+            'answer': '0', 'userAnswer': None},
+        {'id': 3, 'options': [6, 2, 97, 1, None],
+            'answer': '2', 'userAnswer': None},
+        {'id': 4, 'options': [15, 2, 27, 32, None],
+            'answer': '2', 'userAnswer': None},
+    ]
+}

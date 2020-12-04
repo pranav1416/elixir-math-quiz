@@ -1,17 +1,18 @@
-from PyQt5 import QtWidgets,uic,QtGui
+from PyQt5 import QtWidgets, uic, QtGui
 from functools import partial
 from .quiz_dialog import *
+from .db import *
+
 
 class PracticeScreen(QtWidgets.QWidget):
+    subject = 'addition'
+    lst_page = None
+    qindex = 0
 
-    add_ans = [[7,5,3,11,5],[10,8,5,15,5],[5,12,7,3,5]]
-    state = {"subject":None, "qindex":None,"answers":[-1,-1,-1,-1,-1]}
-    q_ans = 0
     def __init__(self, stack):
         super(PracticeScreen, self).__init__()
         self.stack = stack
-        uic.loadUi("./screen/_ui/prac_screen.ui", self)
-        self.quizBtn.clicked.connect(self.quizBtn_action)
+        uic.loadUi("./screen/_ui/practice_screen_v2.ui", self)
         self.homeBtn.clicked.connect(self.homeBtn_action)
         self.addBtn.clicked.connect(self.addBtn_action)
         self.subBtn.clicked.connect(self.subBtn_action)
@@ -21,141 +22,94 @@ class PracticeScreen(QtWidgets.QWidget):
         self.opt2.clicked.connect(self.opt2_action)
         self.opt3.clicked.connect(self.opt3_action)
         self.opt4.clicked.connect(self.opt4_action)
-        if(self.state["subject"] == None):
-            self.questionFrame.setVisible(False)
-            self.selectFrame.setVisible(True)
+        self.questionFrame.setVisible(False)
 
     def quizBtn_action(self):
         quiz_dialog = QuizDialog(self.stack)
         quiz_dialog.exec_()
-    
+
     def homeBtn_action(self):
         self.stack.setCurrentIndex(1)
-    
+
     def addBtn_action(self):
-        self.selectFrame.setVisible(False)
+        self.qindex = 0
         self.questionFrame.setVisible(True)
-        self.state["subject"] = "add"
-        self.state["qindex"] = 0
-        self.state["answers"]= [-1,-1,-1,-1,-1]
+        self.subject = 'addition'
         self.render_question()
-    
+
     def subBtn_action(self):
-        self.selectFrame.setVisible(False)
+        self.qindex = 0
         self.questionFrame.setVisible(True)
-        self.state["subject"] = "sub"
-        self.state["qindex"] = 0
-        self.state["answers"]= [-1,-1,-1,-1,-1]
+        self.subject = 'subtraction'
         self.render_question()
 
     def nxtBtn_action(self):
-        if(self.state["qindex"]<4):
-            self.state["qindex"]+=1
+        self.lst_page = len(
+            practice_questions['addition']) if self.subject == "addition" else len(practice_questions['subtraction'])
+        if(self.qindex < self.lst_page - 1):
+            self.qindex += 1
             self.render_question()
-    
+
     def prevBtn_action(self):
-        if(self.state["qindex"]>0):
-            self.state["qindex"]-=1
+        if self.qindex > 0:
+            self.qindex -= 1
             self.render_question()
-    
+
     def opt1_action(self):
-        if(self.state["subject"] != None):
-            self.check_ans()
-            self.opt2.setEnabled(False)
-            self.opt3.setEnabled(False)
-            self.opt4.setEnabled(False)
-            self.state["answers"][self.state["qindex"]] = self.opt1.text()
-            if(self.opt1.text() == str(self.q_ans)):
-                self.opt1.setStyleSheet('QPushButton {background-color:#008000}')
-            else:
-                self.opt1.setStyleSheet('QPushButton {background-color:#ff0000}')
+        practice_questions[self.subject][self.qindex]["userAnswer"] = self.opt1.text(
+        )
+        self.opt1.setEnabled(False)
+
     def opt2_action(self):
-        if(self.state["subject"] != None):
-            self.check_ans()
-            self.opt1.setEnabled(False)
-            self.opt3.setEnabled(False)
-            self.opt4.setEnabled(False)
-            self.state["answers"][self.state["qindex"]] = self.opt2.text()
-            if(self.opt2.text() == str(self.q_ans)):
-                self.opt2.setStyleSheet('QPushButton {background-color:#008000}')
-            else:
-                self.opt2.setStyleSheet('QPushButton {background-color:#ff0000}')
+        practice_questions[self.subject][self.qindex]["userAnswer"] = self.opt2.text(
+        )
+        self.opt2.setEnabled(False)
+
     def opt3_action(self):
-        if(self.state["subject"] != None):
-            self.check_ans()
-            self.opt2.setEnabled(False)
-            self.opt1.setEnabled(False)
-            self.opt4.setEnabled(False)
-            self.state["answers"][self.state["qindex"]] = self.opt3.text()
-            if(self.opt3.text() == str(self.q_ans)):
-                self.opt3.setStyleSheet('QPushButton {background-color:#008000}')
-            else:
-                self.opt3.setStyleSheet('QPushButton {background-color:#ff0000}')
+        practice_questions[self.subject][self.qindex]["userAnswer"] = self.opt3.text(
+        )
+        self.opt3.setEnabled(False)
 
     def opt4_action(self):
-        if(self.state["subject"] != None):
-            self.check_ans()
-            self.opt2.setEnabled(False)
-            self.opt3.setEnabled(False)
-            self.opt1.setEnabled(False)
-            self.state["answers"][self.state["qindex"]] = self.opt4.text()
-            if(self.opt4.text() == str(self.q_ans)):
-                self.opt4.setStyleSheet('QPushButton {background-color:#008000}')
-            else:
-                self.opt4.setStyleSheet('QPushButton {background-color:#ff0000}')
+        practice_questions[self.subject][self.qindex]["userAnswer"] = self.opt4.text(
+        )
+        self.opt4.setEnabled(False)
 
-    
     def set_state(self):
-        ans = self.state["answers"][self.state["qindex"]]
-        if(ans != -1):
-            for button in self.optBtns.buttons():
-                if(button.text() == str(ans)):
-                    check_ans()
-                    if(button.text() == str(self.q_ans)):
-                        btn.setStyleSheet('QPushButton {background-color:#008000}')
-                    else:
-                        btn.setStyleSheet('QPushButton {background-color:#ff0000}')
-        else:
-            self.opt1.setEnabled(True)
-            self.opt2.setEnabled(True)
-            self.opt3.setEnabled(True)
-            self.opt4.setEnabled(True)
-            self.opt1.setStyleSheet("")
-            self.opt2.setStyleSheet("")
-            self.opt3.setStyleSheet("")
-            self.opt4.setStyleSheet("")
+        answer = practice_questions[self.subject][self.qindex]["answer"]
 
+        for button in self.optBtns.buttons():
+            if(button.text() == answer):
+                button.setStyleSheet(
+                    'QPushButton{	\ncolor: rgb(0, 0, 0);	background-color: rgb(255, 255, 255);\nborder:1px solid;\n}\nQPushButton:hover{\n	color: rgb(255, 255, 255);\n	background-color: rgb(0,0,0);\n}\nQPushButton:!enabled { \nborder:0px;\ncolor: #FFFFFF; \nbackground-color: #66FFB2; \n}')
+            else:
+                button.setStyleSheet(
+                    'QPushButton{	\ncolor: rgb(0, 0, 0);	background-color: rgb(255, 255, 255);\nborder:1px solid;\n}\nQPushButton:hover{\n	color: rgb(255, 255, 255);\n	background-color: rgb(0,0,0);\n}\nQPushButton:!enabled { \nborder:0px;\ncolor: #FFFFFF; \nbackground-color: #CC0000; \n}')
 
-    
+        for button in self.optBtns.buttons():
+            button.setEnabled(True)
+
     def render_options(self):
-        if(self.state["subject"] == "add"):
-            q_options = self.add_ans[self.state["qindex"]][:-1]
-        elif(self.state["subject"] == "sub"):
-            q_options = self.sub_ans[self.state["qindex"]][:-1]
-        self.opt1.setText(str(q_options[0]))
-        self.opt2.setText(str(q_options[1]))
-        self.opt3.setText(str(q_options[2]))
-        self.opt4.setText(str(q_options[3]))
+        if self.subject == "addition":
+            q_options = practice_questions[self.subject][self.qindex]['options']
+        else:
+            q_options = practice_questions[self.subject][self.qindex]['options']
+        for idx, button in enumerate(self.optBtns.buttons()):
+            button.setText(str(q_options[idx]))
 
     def render_question(self):
-        if(self.state["qindex"] == 0):
+        if self.qindex == 0:
             self.prevBtn.setVisible(False)
             self.nxtBtn.setVisible(True)
-        elif(self.state["qindex"] < 4):
-            self.prevBtn.setVisible(True)
-            self.nxtBtn.setVisible(True)
-        elif(self.state["qindex"] == 4):
+        elif(self.qindex == self.lst_page - 1):
             self.prevBtn.setVisible(True)
             self.nxtBtn.setVisible(False)
-        path = "./resources/practice/"+str(self.state["subject"])+"_"+str(self.state["qindex"])+".png"
+        else:
+            self.prevBtn.setVisible(True)
+            self.nxtBtn.setVisible(True)
+        path = "./resources/practice/{}_{}.png".format(
+            self.subject, self.qindex)
         pixmap = QtGui.QPixmap(path)
         self.questionLabel.setPixmap(pixmap)
         self.render_options()
         self.set_state()
-
-    def check_ans(self):
-        if(self.state["subject"] == "add"):
-            self.q_ans = self.add_ans[self.state["qindex"]][4]
-        elif(self.state["subject"] == "sub"):
-            self.q_ans = self.sub_ans[self.state["qindex"]][4]
-    
