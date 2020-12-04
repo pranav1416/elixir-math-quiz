@@ -6,57 +6,32 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1068</width>
-    <height>688</height>
+    <width>1026</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
+    <horstretch>200</horstretch>
+    <verstretch>200</verstretch>
    </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1000</width>
+    <height>700</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>1000</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>1000</width>
-     <height>16777215</height>
-    </size>
-   </property>
-   <property name="font">
-    <font>
-     <family>Microsoft JhengHei</family>
-     <pointsize>30</pointsize>
-    </font>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>../../resources/practice_time.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
      <x>9</x>
-     <y>139</y>
-     <width>999</width>
-     <height>519</height>
+     <y>20</y>
+     <width>1001</width>
+     <height>661</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -65,13 +40,44 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>-1</x>
-      <y>-1</y>
-      <width>1001</width>
-      <height>61</height>
+      <x>0</x>
+      <y>0</y>
+      <width>1000</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1000</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Microsoft JhengHei</family>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>../../resources/practice_time.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>140</y>
+      <width>999</width>
+      <height>519</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -80,222 +86,238 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="quizBtn">
+    <widget class="QFrame" name="frame_2">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>10</y>
-       <width>131</width>
-       <height>41</height>
+       <x>0</x>
+       <y>0</y>
+       <width>1001</width>
+       <height>61</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Quiz</string>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="quizBtn">
+      <property name="geometry">
+       <rect>
+        <x>630</x>
+        <y>10</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Quiz</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="homeBtn">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>10</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Finish</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addBtn">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>113</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Addition </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="subBtn">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>113</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Subtraction</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="homeBtn">
+    <widget class="QFrame" name="questionFrame">
      <property name="geometry">
       <rect>
-       <x>820</x>
-       <y>10</y>
-       <width>131</width>
-       <height>41</height>
+       <x>-1</x>
+       <y>69</y>
+       <width>1001</width>
+       <height>451</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Finish</string>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="opt1">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>321</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>A</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">optBtns</string>
+      </attribute>
+     </widget>
+     <widget class="QPushButton" name="opt2">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>320</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>B</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">optBtns</string>
+      </attribute>
+     </widget>
+     <widget class="QPushButton" name="opt3">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>320</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>C</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">optBtns</string>
+      </attribute>
+     </widget>
+     <widget class="QPushButton" name="opt4">
+      <property name="geometry">
+       <rect>
+        <x>660</x>
+        <y>320</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>D</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">optBtns</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="questionLabel">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>931</width>
+        <height>221</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../resources/practice/add_2.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nxtBtn">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>310</y>
+        <width>81</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="prevBtn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>310</y>
+        <width>81</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="addBtn">
+    <widget class="QFrame" name="selectFrame">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>113</width>
-       <height>41</height>
+       <x>-1</x>
+       <y>60</y>
+       <width>1001</width>
+       <height>451</height>
       </rect>
      </property>
-     <property name="text">
-      <string>Addition </string>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>130</y>
+        <width>841</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../resources/practice_time.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
     </widget>
-    <widget class="QPushButton" name="subBtn">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>113</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Subtraction</string>
-     </property>
-    </widget>
+    <zorder>frame_2</zorder>
+    <zorder>selectFrame</zorder>
+    <zorder>questionFrame</zorder>
    </widget>
-   <widget class="QFrame" name="questionFrame">
-    <property name="geometry">
-     <rect>
-      <x>-1</x>
-      <y>69</y>
-      <width>1001</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QPushButton" name="opt1">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>321</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>A</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">optBtns</string>
-     </attribute>
-    </widget>
-    <widget class="QPushButton" name="opt2">
-     <property name="geometry">
-      <rect>
-       <x>360</x>
-       <y>320</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>B</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">optBtns</string>
-     </attribute>
-    </widget>
-    <widget class="QPushButton" name="opt3">
-     <property name="geometry">
-      <rect>
-       <x>510</x>
-       <y>320</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>C</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">optBtns</string>
-     </attribute>
-    </widget>
-    <widget class="QPushButton" name="opt4">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>320</y>
-       <width>141</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>D</string>
-     </property>
-     <attribute name="buttonGroup">
-      <string notr="true">optBtns</string>
-     </attribute>
-    </widget>
-    <widget class="QLabel" name="questionLabel">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>30</y>
-       <width>931</width>
-       <height>221</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../resources/practice/add_2.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="nxtBtn">
-     <property name="geometry">
-      <rect>
-       <x>890</x>
-       <y>310</y>
-       <width>81</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Next</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="prevBtn">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>310</y>
-       <width>81</width>
-       <height>91</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Previous</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QFrame" name="selectFrame">
-    <property name="geometry">
-     <rect>
-      <x>-1</x>
-      <y>60</y>
-      <width>1001</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>90</x>
-       <y>130</y>
-       <width>841</width>
-       <height>171</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../../resources/practice_time.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </widget>
-   <zorder>frame_2</zorder>
-   <zorder>selectFrame</zorder>
-   <zorder>questionFrame</zorder>
   </widget>
  </widget>
  <resources/>

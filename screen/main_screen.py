@@ -6,7 +6,6 @@ from .learning_screen import *
 from .practice_screen import *
 from .quiz_screen import *
 from .quiz_dialog import *
-from .practice_dialog import *
 from .result_screen import *
 
 ui_path = Path("./screen/_ui/")
