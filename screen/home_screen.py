@@ -1,7 +1,8 @@
-from PyQt5 import QtWidgets,uic
+from PyQt5 import QtWidgets,uic, QtCore
 from functools import partial
 
 class HomeScreen(QtWidgets.QWidget):
+    greetChange = QtCore.pyqtSignal(str)
 
     def __init__(self, stack):
         super(HomeScreen, self).__init__()
@@ -18,16 +19,21 @@ class HomeScreen(QtWidgets.QWidget):
 
     def proceed_action(self):
         flag = self.valid_name()
-        print(flag)
-        if(flag):
-            self.stack.setCurrentIndex(1)
-        else:
-            msg = QtWidgets.QMessageBox()
-            msg.setIcon(QtWidgets.QMessageBox.Information)
-            msg.setText("Please enter a valid name!")
-            msg.setWindowTitle("Name not valid")
-            msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
-            #msg.buttonClicked.connect(msgButtonClick)
-            msg.exec()
+        # print(flag)
+        # if(flag):
+        #     self.stack.setCurrentIndex(1)
+        # else:
+        #     msg = QtWidgets.QMessageBox()
+        #     msg.setIcon(QtWidgets.QMessageBox.Information)
+        #     msg.setText("Please enter a valid name!")
+        #     msg.setWindowTitle("Name not valid")
+        #     msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        #     #msg.buttonClicked.connect(msgButtonClick)
+        #     msg.exec()
 
     
+        print(self.userName.text())
+        name = self.userName.text() if self.userName.text() else "Stranger"
+        greeting = f"Hello {name}!"
+        self.greetChange.emit(greeting)
+        self.stack.setCurrentIndex(1)

@@ -3,11 +3,18 @@ from pathlib import Path
 from functools import partial
 from PyQt5.QtGui import QPixmap
 from .db import *
+from matplotlib.animation import FuncAnimation
+from matplotlib.figure import Figure
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+from PyQt5.QtMultimedia import QSound
+
 
 ui_path = Path("./screen/_ui/")
 
-
 class ResultScreen(QtWidgets.QWidget):
+    resetAnswers = QtCore.pyqtSignal()
 
     def __init__(self, stack):
         super(ResultScreen, self).__init__()
@@ -27,73 +34,45 @@ class ResultScreen(QtWidgets.QWidget):
         self.stackedWidget.currentChanged.connect(self.set_data)
         self.stackedWidget.setCurrentIndex(0)
         self.listWidget.currentRowChanged.connect(self.question_lst_action)
-        # self.Btn_next_1.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 1))
-        # self.Btn_next_2.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 2))
-        # self.Btn_next_3.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 3))
-        # self.Btn_pre_2.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 0))
-        # self.Btn_pre_3.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 1))
-        # self.Btn_pre_4.clicked.connect(
-        #     partial(self.handleClickPreNextBtn, 2))
+        self.figure = plt.figure() 
+        self.canvas = FigureCanvas(self.figure) 
+        self.graph.addWidget(self.canvas) 
+        self.sound = QSound("resources/magic2.wav")
 
-        # Q1 = 0
-        # score = 0
-        # if Q1 == 0:
-        #     self.label_2.setPixmap(QPixmap("resources/correct_rating.png"))
-        #     score += 25
-        # elif Q1 != 0:
-        #     self.label_2.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-        # Q2 = 1
-        # if Q2 == 0:
-        #     self.label_3.setPixmap(QPixmap("resources/correct_rating.png"))
-        #     score += 25
-        # elif Q2 != 0:
-        #     self.label_3.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-        # Q3 = 0
-        # if Q3 == 0:
-        #     self.label_4.setPixmap(QPixmap("resources/correct_rating.png"))
-        #     score += 25
-        # elif Q3 != 0:
-        #     self.label_4.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-        # Q4 = 1
-        # if Q4 == 0:
-        #     self.label_5.setPixmap(QPixmap("resources/correct_rating.png"))
-        #     score += 25
-        # elif Q4 != 0:
-        #     self.label_5.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-        # if score == 0:
-        #     self.label.setPixmap(QPixmap("resources/1star.png"))
-        #     self.score_num.setText("0")
-        #     self.correct_num.setText("0")
-        #     self.wrong_num.setText("4")
-        # if score == 25:
-        #     self.label.setPixmap(QPixmap("resources/2stars.png"))
-        #     self.score_num.setText("25")
-        #     self.correct_num.setText("1")
-        #     self.wrong_num.setText("3")
-        # if score == 50:
-        #     self.label.setPixmap(QPixmap("resources/3stars.png"))
-        #     self.score_num.setText("50")
-        #     self.correct_num.setText("2")
-        #     self.wrong_num.setText("2")
-        # if score == 75:
-        #     self.label.setPixmap(QPixmap("resources/4stars.png"))
-        #     self.score_num.setText("75")
-        #     self.correct_num.setText("3")
-        #     self.wrong_num.setText("1")
-        # if score == 100:
-        #     self.label.setPixmap(QPixmap("resources/5stars.png"))
-        #     self.score_num.setText("100")
-        #     self.correct_num.setText("4")
-        #     self.wrong_num.setText("0")
+    def plot(self, num1, num2): 
+        if self.subject == 'addition':
+            right = num1 + num2 
+            left = min(num1, num2) if num1 < 0 or num2 < 0 else 0
+            x1 = np.arange( 0, num1 + 1)
+            x2 = np.arange(num1, num1 + num2 + 1) 
+        else: 
+            right = max(num1 , num2) 
+            mini = min(num1 - num2, num2 - num1)
+            left = mini if mini < 0 else 0
+            x1 = np.arange( 0, num1 + 1)
+            x2 = np.arange(num1 - num2, num1 + 1) 
+        y1 = [5] * len(x1)
+        y2 = [5] * len(x2)
+        self.figure.clear() 
+        ax = self.figure.add_subplot(111)
+        ax.get_yaxis().set_visible(False)
+        line1, = ax.plot(x1, y1, linewidth=6, color='black') 
+        line2, = ax.plot(x2, y2, linewidth=6, color='red') 
+        def update(i):
+            if i == 0:
+                self.sound.play()
+            elif i == len(x2):
+                self.sound.stop()
+            if (self.subject == 'addition'):
+                line2.set_data(x2[:i], y2[:i])
+            else:
+                line2.set_data(np.flip(x2)[:i], np.flip(y2)[:i])
+            return line2, ax
+        self.an1 = FuncAnimation(self.figure, update, interval=50)
+        ax.set_xlim(left, right)
+        ax.set_ylim(4.9,5.1) 
+        self.canvas.draw() 
+        
 
     def handleClickMenuBtn(self, index):
         self.stackedWidget.setCurrentIndex(index)
@@ -102,11 +81,10 @@ class ResultScreen(QtWidgets.QWidget):
         self.tabWidget.setCurrentIndex(index)
 
     def homeBtn_action(self):
-        self.resetProblems()
         self.stack.setCurrentIndex(1)
 
     def tryagainBtn_action(self):
-        self.resetProblems()
+        self.resetAnswers.emit()
         self.stack.setCurrentIndex(4)
 
     def reviewBtn_action(self):
@@ -114,15 +92,16 @@ class ResultScreen(QtWidgets.QWidget):
 
     def set_data(self):
         self.score_num.setText(str(results[f'{self.subject}Quiz']['score']))
-        self.correct_num.setText(str(results[f'{self.subject}Quiz']['correct']))
+        self.correct_num.setText(
+            str(results[f'{self.subject}Quiz']['correct']))
         self.wrong_num.setText(str(results[f'{self.subject}Quiz']['wrong']))
-        if results[f'{self.subject}Quiz']['score'] == 0:
-            self.stars.setPixmap(QPixmap("resources/1star.png")) 
-        elif results[f'{self.subject}Quiz']['score'] <= 25: 
+        if results[f'{self.subject}Quiz']['score'] <= 20:
+            self.stars.setPixmap(QPixmap("resources/1star.png"))
+        elif results[f'{self.subject}Quiz']['score'] <= 40:
             self.stars.setPixmap(QPixmap("resources/2stars.png"))
-        elif results[f'{self.subject}Quiz']['score'] <= 50:
+        elif results[f'{self.subject}Quiz']['score'] <= 60:
             self.stars.setPixmap(QPixmap("resources/3stars.png"))
-        elif results[f'{self.subject}Quiz']['score'] <= 75:
+        elif results[f'{self.subject}Quiz']['score'] <= 80:
             self.stars.setPixmap(QPixmap("resources/4stars.png"))
         elif results[f'{self.subject}Quiz']['score'] <= 100:
             self.stars.setPixmap(QPixmap("resources/5stars.png"))
@@ -131,28 +110,27 @@ class ResultScreen(QtWidgets.QWidget):
     def onUpdateQuizReuslt(self, newSubject):
         self.subject = newSubject
         if newSubject == 'addition':
-            self.questionSet = additionQuestions 
+            self.questionSet = additionQuestions
         elif newSubject == 'subtraction':
             self.questionSet = subtractionQuestions
         self.set_data()
         self.listWidget.clear()
         for question in self.questionSet:
-            self.listWidget.addItem(question['name']) 
+            self.listWidget.addItem(question['name'])
         self.listWidget.setCurrentRow(0)
         self.stackedWidget.setCurrentIndex(0)
 
-    
     def question_lst_action(self):
         question_index = self.listWidget.currentRow()
         currentQuestion = self.questionSet[question_index]
-        self.question.setText(currentQuestion['question']) 
-        self.answer.setText('Answer is {answer}'.format(answer=currentQuestion['answer']))
-        self.userAnswer.setText('Your Answer is {answer}'.format(answer=currentQuestion['userAnswer']))
+        self.question.setText(currentQuestion['question'].replace(
+            "?", " {}".format(currentQuestion['answer'])))
+        self.userAnswer.setText('Your Answer is {answer}'.format(
+            answer=currentQuestion['userAnswer']))
         if currentQuestion['answer'] == currentQuestion['userAnswer']:
             self.emoji.setPixmap(QPixmap("resources/correct_rating.png"))
         else:
             self.emoji.setPixmap(QPixmap("resources/wrong_rating.png"))
-
-    def resetProblems(self):
-        for question in self.questionSet:
-            question['userAnswer'] = None
+        numbers = [int(s) for s in currentQuestion['question'].split() if s.isdigit()]
+        self.plot(numbers[0],numbers[1])
+    
