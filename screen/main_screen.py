@@ -22,8 +22,7 @@ class MainScreen(QtWidgets.QMainWindow):
         self.quiz_screen.updateQuizReuslt.connect(
             self.result_screen.onUpdateQuizReuslt)
         self.nav_screen.quiz_dialog.updateSubject.connect(
-            self.quiz_screen.onUpdateSubject
-        )
+            self.quiz_screen.onUpdateSubject)
 
     def append_screens(self):
         self.home_screen = HomeScreen(self.mainStack)
