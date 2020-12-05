@@ -549,23 +549,23 @@ QPushButton:hover{
             <widget class="QLabel" name="emoji">
              <property name="geometry">
               <rect>
-               <x>500</x>
-               <y>40</y>
-               <width>170</width>
-               <height>80</height>
+               <x>570</x>
+               <y>20</y>
+               <width>151</width>
+               <height>131</height>
               </rect>
              </property>
              <property name="maximumSize">
               <size>
-               <width>200</width>
-               <height>100</height>
+               <width>16777215</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>../../resources/correct_rating.png</pixmap>
+              <pixmap>../../resources/happy_face.png</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>
@@ -575,7 +575,7 @@ QPushButton:hover{
              <property name="geometry">
               <rect>
                <x>580</x>
-               <y>180</y>
+               <y>210</y>
                <width>121</width>
                <height>161</height>
               </rect>

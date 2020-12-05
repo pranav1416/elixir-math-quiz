@@ -204,17 +204,17 @@ QPushButton:hover{
                <widget class="QLabel" name="label">
                 <property name="geometry">
                  <rect>
-                  <x>120</x>
-                  <y>110</y>
-                  <width>511</width>
-                  <height>221</height>
+                  <x>130</x>
+                  <y>60</y>
+                  <width>541</width>
+                  <height>261</height>
                  </rect>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../resources/addition_1.png</pixmap>
+                 <pixmap>../../resources/addition_4.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -225,17 +225,17 @@ QPushButton:hover{
                <widget class="QLabel" name="label_3">
                 <property name="geometry">
                  <rect>
-                  <x>80</x>
-                  <y>60</y>
-                  <width>561</width>
-                  <height>331</height>
+                  <x>100</x>
+                  <y>120</y>
+                  <width>571</width>
+                  <height>161</height>
                  </rect>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../resources/addition_2.png</pixmap>
+                 <pixmap>../../resources/addition_3.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -247,16 +247,16 @@ QPushButton:hover{
                 <property name="geometry">
                  <rect>
                   <x>120</x>
-                  <y>90</y>
-                  <width>511</width>
-                  <height>221</height>
+                  <y>60</y>
+                  <width>541</width>
+                  <height>261</height>
                  </rect>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../resources/subtraction_1.png</pixmap>
+                 <pixmap>../../resources/subtraction_4.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>
@@ -267,17 +267,17 @@ QPushButton:hover{
                <widget class="QLabel" name="label_8">
                 <property name="geometry">
                  <rect>
-                  <x>80</x>
-                  <y>60</y>
-                  <width>561</width>
-                  <height>331</height>
+                  <x>110</x>
+                  <y>110</y>
+                  <width>571</width>
+                  <height>151</height>
                  </rect>
                 </property>
                 <property name="text">
                  <string/>
                 </property>
                 <property name="pixmap">
-                 <pixmap>../../resources/subtraction_2.png</pixmap>
+                 <pixmap>../../resources/subtraction_3.png</pixmap>
                 </property>
                 <property name="scaledContents">
                  <bool>true</bool>

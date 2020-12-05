@@ -128,9 +128,9 @@ class ResultScreen(QtWidgets.QWidget):
         self.userAnswer.setText('Your Answer is {answer}'.format(
             answer=currentQuestion['userAnswer']))
         if currentQuestion['answer'] == currentQuestion['userAnswer']:
-            self.emoji.setPixmap(QPixmap("resources/correct_rating.png"))
+            self.emoji.setPixmap(QPixmap("resources/happy_face.png"))
         else:
-            self.emoji.setPixmap(QPixmap("resources/wrong_rating.png"))
+            self.emoji.setPixmap(QPixmap("resources/sad_face.png"))
         numbers = [int(s) for s in currentQuestion['question'].split() if s.isdigit()]
         self.plot(numbers[0],numbers[1])
     
