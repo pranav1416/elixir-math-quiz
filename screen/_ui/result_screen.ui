@@ -186,7 +186,7 @@ QPushButton:hover{
             <string notr="true">background-color: rgb(255, 255, 255);</string>
            </property>
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="page_1">
             <widget class="QGroupBox" name="groupBox_3">
@@ -223,6 +223,9 @@ QPushButton:hover{
              </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
              </property>
              <property name="title">
               <string>Wrong</string>
@@ -291,6 +294,9 @@ QPushButton:hover{
              </property>
              <property name="autoFillBackground">
               <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
              </property>
              <property name="title">
               <string>Correct</string>
@@ -469,6 +475,9 @@ QPushButton:hover{
                <italic>false</italic>
                <bold>true</bold>
               </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
              </property>
              <property name="title">
               <string>Score</string>
