@@ -1,6 +1,8 @@
 from PyQt5 import QtWidgets, uic, QtCore
 from functools import partial
+from .utils import *
 
+quiz_dialog = resource_path("screen\_ui\quiz_dialog.ui")
 
 class QuizDialog(QtWidgets.QDialog):
     updateSubject = QtCore.pyqtSignal(str)
@@ -8,7 +10,7 @@ class QuizDialog(QtWidgets.QDialog):
     def __init__(self, stack):
         super(QuizDialog, self).__init__()
         self.stack = stack
-        uic.loadUi("./screen/_ui/quiz_dialog.ui", self)
+        uic.loadUi(quiz_dialog, self)
         self.plusBtn.clicked.connect(self.plusBtn_action)
         self.minusBtn.clicked.connect(self.minusBtn_action)
         self.cancelBtn.clicked.connect(self.cancelBtn_action)

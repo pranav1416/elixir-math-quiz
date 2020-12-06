@@ -1,13 +1,15 @@
 from PyQt5 import QtWidgets, uic, QtCore
 from functools import partial
 from .quiz_dialog import *
+from .utils import *
 
+nav = resource_path("screen\_ui\\nav_screen.ui")
 class NavScreen(QtWidgets.QWidget):
 
     def __init__(self, stack):
         super(NavScreen, self).__init__()
         self.stack = stack
-        uic.loadUi("./screen/_ui/nav_screen.ui", self)
+        uic.loadUi(nav, self)
         self.quiz_dialog = QuizDialog(self.stack)
         self.learnBtn.clicked.connect(self.learnBtn_action)
         self.practiceBtn.clicked.connect(self.practiceBtn_action)

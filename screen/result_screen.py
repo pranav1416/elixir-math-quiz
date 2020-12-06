@@ -9,9 +9,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PyQt5.QtMultimedia import QSound
+from .utils import *
 
-
-ui_path = Path("./screen/_ui/")
+result = resource_path("screen\_ui\\result_screen.ui")
 
 class ResultScreen(QtWidgets.QWidget):
     resetAnswers = QtCore.pyqtSignal()
@@ -22,7 +22,7 @@ class ResultScreen(QtWidgets.QWidget):
         self.subject = 'addition'
         self.questionSet = additionQuestions
         # main_app_path = ui_path / "result_screen.ui"
-        uic.loadUi("./screen/_ui/result_screen.ui", self)
+        uic.loadUi(result, self)
 
         self.homeBtn.clicked.connect(self.homeBtn_action)
         self.tryagainBtn.clicked.connect(self.tryagainBtn_action)
@@ -37,7 +37,7 @@ class ResultScreen(QtWidgets.QWidget):
         self.figure = plt.figure() 
         self.canvas = FigureCanvas(self.figure) 
         self.graph.addWidget(self.canvas) 
-        self.sound = QSound("resources/magic2.wav")
+        self.sound = QSound(resource_path("resources/magic2.wav"))
 
     def plot(self, num1, num2): 
         if self.subject == 'addition':
@@ -96,15 +96,15 @@ class ResultScreen(QtWidgets.QWidget):
             str(results[f'{self.subject}Quiz']['correct']))
         self.wrong_num.setText(str(results[f'{self.subject}Quiz']['wrong']))
         if results[f'{self.subject}Quiz']['score'] <= 20:
-            self.stars.setPixmap(QPixmap("resources/1star.png"))
+            self.stars.setPixmap(QPixmap(resource_path("resources/1star.png")))
         elif results[f'{self.subject}Quiz']['score'] <= 40:
-            self.stars.setPixmap(QPixmap("resources/2stars.png"))
+            self.stars.setPixmap(QPixmap(resource_path("resources/2stars.png")))
         elif results[f'{self.subject}Quiz']['score'] <= 60:
-            self.stars.setPixmap(QPixmap("resources/3stars.png"))
+            self.stars.setPixmap(QPixmap(resource_path("resources/3stars.png")))
         elif results[f'{self.subject}Quiz']['score'] <= 80:
-            self.stars.setPixmap(QPixmap("resources/4stars.png"))
+            self.stars.setPixmap(QPixmap(resource_path("resources/4stars.png")))
         elif results[f'{self.subject}Quiz']['score'] <= 100:
-            self.stars.setPixmap(QPixmap("resources/5stars.png"))
+            self.stars.setPixmap(QPixmap(resource_path("resources/5stars.png")))
 
     @QtCore.pyqtSlot(str)
     def onUpdateQuizReuslt(self, newSubject):
@@ -128,9 +128,9 @@ class ResultScreen(QtWidgets.QWidget):
         self.userAnswer.setText('Your Answer is {answer}'.format(
             answer=currentQuestion['userAnswer']))
         if currentQuestion['answer'] == currentQuestion['userAnswer']:
-            self.emoji.setPixmap(QPixmap("resources/happy_face.png"))
+            self.emoji.setPixmap(QPixmap(resource_path("resources/happy_face.png")))
         else:
-            self.emoji.setPixmap(QPixmap("resources/sad_face.png"))
+            self.emoji.setPixmap(QPixmap(resource_path("resources/sad_face.png")))
         numbers = [int(s) for s in currentQuestion['question'].split() if s.isdigit()]
         self.plot(numbers[0],numbers[1])
     

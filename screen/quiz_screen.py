@@ -2,7 +2,9 @@ from PyQt5 import QtWidgets, uic, QtCore
 from functools import partial
 from .utils import *
 from .db import *
+from .utils import *
 
+quiz = resource_path("screen\_ui\quiz_screen.ui")
 
 class QuizScreen(QtWidgets.QWidget):
     updateQuizReuslt = QtCore.pyqtSignal(str)
@@ -12,7 +14,7 @@ class QuizScreen(QtWidgets.QWidget):
         self.stack = stack
         self.subject = 'addition'
         self.questionSet = additionQuestions
-        uic.loadUi("./screen/_ui/quiz_screen.ui", self)
+        uic.loadUi(quiz, self)
         self.options = [self.option1, self.option2, self.option3, self.option4]
         self.finishBtn.clicked.connect(self.finishBtn_action)
         self.cancelBtn.clicked.connect(self.cancelBtn_action)

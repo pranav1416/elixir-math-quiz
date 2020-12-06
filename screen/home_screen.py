@@ -1,5 +1,8 @@
 from PyQt5 import QtWidgets,uic, QtCore
 from functools import partial
+from .utils import *
+
+home = resource_path("screen\_ui\home_screen.ui")
 
 class HomeScreen(QtWidgets.QWidget):
     greetChange = QtCore.pyqtSignal(str)
@@ -7,7 +10,7 @@ class HomeScreen(QtWidgets.QWidget):
     def __init__(self, stack):
         super(HomeScreen, self).__init__()
         self.stack = stack
-        uic.loadUi("./screen/_ui/home_screen.ui", self)
+        uic.loadUi(home, self)
         self.proceedBtn.clicked.connect(self.proceed_action)
 
     def valid_name(self):

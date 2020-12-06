@@ -1,8 +1,10 @@
-from PyQt5 import QtWidgets, uic
+from PyQt5 import QtWidgets, uic, QtGui
 from pathlib import Path
 from functools import partial
+from .utils import *
 
-ui_path = Path("./screen/_ui/")
+learn = resource_path("screen\_ui\learning_screen.ui")
+
 
 
 class LearningScreen(QtWidgets.QWidget):
@@ -10,7 +12,7 @@ class LearningScreen(QtWidgets.QWidget):
     def __init__(self, stack):
         super(LearningScreen, self).__init__()
         #main_app_path = ui_path / "learning_screen.ui"
-        uic.loadUi("./screen/_ui/learning_screen.ui", self)
+        uic.loadUi(learn, self)
         self.stack = stack
         self.homeBtn.clicked.connect(self.homeBtn_action)
         self.addModule1Btn.clicked.connect(

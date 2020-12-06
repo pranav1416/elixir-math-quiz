@@ -2,6 +2,9 @@ from PyQt5 import QtWidgets, uic, QtGui
 from functools import partial
 from .quiz_dialog import *
 from .db import *
+from .utils import *
+
+practice = resource_path("screen\_ui\practice_screen_v2.ui")
 
 
 class PracticeScreen(QtWidgets.QWidget):
@@ -12,7 +15,7 @@ class PracticeScreen(QtWidgets.QWidget):
     def __init__(self, stack):
         super(PracticeScreen, self).__init__()
         self.stack = stack
-        uic.loadUi("./screen/_ui/practice_screen_v2.ui", self)
+        uic.loadUi(practice, self)
         self.homeBtn.clicked.connect(self.homeBtn_action)
         self.addBtn.clicked.connect(self.addBtn_action)
         self.subBtn.clicked.connect(self.subBtn_action)
@@ -107,9 +110,9 @@ class PracticeScreen(QtWidgets.QWidget):
         else:
             self.prevBtn.setVisible(True)
             self.nxtBtn.setVisible(True)
-        path = "./resources/practice/{}_{}.png".format(
-            self.subject, self.qindex)
-        pixmap = QtGui.QPixmap(path)
+        path = resource_path("resources/practice/{}_{}.png".format(
+            self.subject, self.qindex))
+        pixmap=QtGui.QPixmap(path)
         self.questionLabel.setPixmap(pixmap)
         self.render_options()
         self.set_state()
