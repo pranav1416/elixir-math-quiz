@@ -1,6 +1,8 @@
 # How to use 
 
-click the file elixir_app within elixir-math-quiz folder, and wait for about 10 sec. You will then see the app's main window pops up.
+Operating System: Windows 10
+Click the file elixir_app within elixir-math-quiz folder, and wait for about 10 secs. 
+You will then see the app's main window pops up.
 
 # elixir-math-quiz
 
